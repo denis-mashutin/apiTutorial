@@ -21,7 +21,7 @@ class TestViews(TestCase):
     def test_offer_details(self):
         # Login and create a sample offer
         self.client.login(username='testuser', password='password')
-        offer = Offer.objects.create(name='Test Offer', author=self.user)
+        offer = Offer.objects.create(text='Test Offer', author=self.user)
         url = reverse('offer-detail', args=[offer.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
